@@ -30,21 +30,28 @@ jobs:
         cp src/main artifacts/usr/bin/
         echo "List contents of artifacts/usr/bin"
         ls -l artifacts/usr/bin/
-
-    - name: Run tests
-      run: |
-        chmod +x cicd/test_script.sh
-        cicd/test_script.sh
-
-    - name: Build .deb package
-      run: |
-        sudo apt update && sudo apt install -y g++ build-essential debhelper
-        dpkg-buildpackage -us -uc
-        mkdir -p artifacts/deb
-        mv ../*.deb artifacts/deb/
-
-    - name: Upload .deb package artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: deb-package
-        path: artifacts/deb/*.deb
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Run tests
+        run: |
+          chmod +x cicd/test_script.sh
+          cicd/test_script.sh
+  package:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Build .deb package
+        run: |
+          sudo apt update && sudo apt install -y g++ build-essential debhelper
+          dpkg-buildpackage -us -uc
+          mkdir -p artifacts/deb
+          mv ../*.deb artifacts/deb/
+  
+      - name: Upload .deb package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deb-package
+          path: artifacts/deb/*.deb
+  
