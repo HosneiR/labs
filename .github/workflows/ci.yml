@@ -21,6 +21,7 @@ jobs:
 
     - name: Build the project
       run: |
+        cd src
         make
         mkdir -p artifacts/usr/bin
         cp main artifacts/usr/bin/
