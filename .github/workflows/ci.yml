@@ -26,10 +26,15 @@ jobs:
         mkdir -p artifacts/usr/bin
         cp main artifacts/usr/bin/
 
+    - name: Check if main binary exists
+      run: |
+        ls -l artifacts/usr/bin/
+
     - name: Run tests
       run: |
         chmod +x cicd/test_script.sh
-        cicd/test_script.sh
+        cd artifacts/usr/bin  # Переходим в папку с бинарником
+        ../cicd/test_script.sh
 
     - name: Build .deb package
       run: |
