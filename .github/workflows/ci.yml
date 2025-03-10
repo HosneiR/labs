@@ -26,10 +26,13 @@ jobs:
         echo "Creating directory for the binary"
         cd ..
         mkdir -p artifacts/usr/bin
-        echo "Copying binary file to the artifacts directory"
         cp src/main artifacts/usr/bin/
-        echo "List contents of artifacts/usr/bin"
-        ls -l artifacts/usr/bin/
+    - name: Upload binary artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: main
+        path: usr/bin/main
+        
   test:
     runs-on: ubuntu-latest
     needs: build
