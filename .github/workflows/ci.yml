@@ -36,6 +36,8 @@ jobs:
     steps:
       - name: Run tests
         run: |
+          ls -a
+          ls -l
           cd cicd
           chmod +x test_script.sh
           test_script.sh
