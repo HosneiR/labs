@@ -24,9 +24,10 @@ jobs:
         cd src
         make
         echo "Creating directory for the binary"
+        cd ..
         mkdir -p artifacts/usr/bin
         echo "Copying binary file to the artifacts directory"
-        cp main artifacts/usr/bin/
+        cp src/main artifacts/usr/bin/
         echo "List contents of artifacts/usr/bin"
         ls -l artifacts/usr/bin/
 
