@@ -38,6 +38,7 @@ jobs:
 
     - name: Build .deb package
       run: |
+        sudo apt update && sudo apt install -y g++ build-essential debhelper
         dpkg-buildpackage -us -uc
         mkdir -p artifacts/deb
         mv ../*.deb artifacts/deb/
