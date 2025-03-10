@@ -36,8 +36,9 @@ jobs:
     steps:
       - name: Run tests
         run: |
+          cd cicd
           chmod +x cicd/test_script.sh
-          cicd/test_script.sh
+          test_script.sh
   package:
     runs-on: ubuntu-latest
     needs: test
