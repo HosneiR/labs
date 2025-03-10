@@ -34,8 +34,7 @@ jobs:
     - name: Run tests
       run: |
         chmod +x cicd/test_script.sh
-        cd artifacts/usr/bin  # Переходим в папку с бинарником
-        ../cicd/test_script.sh
+        cicd/test_script.sh
 
     - name: Build .deb package
       run: |
