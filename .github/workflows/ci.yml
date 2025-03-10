@@ -47,8 +47,7 @@ jobs:
           
       - name: Run tests
         run: |
-          cd main
-          ls -a
+          chmod +x ./main
           chmod +x cicd/test_script.sh
           cicd/test_script.sh
   
