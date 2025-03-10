@@ -34,6 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
       - name: Run tests
         run: |
           ls -a
@@ -45,6 +48,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       - name: Build .deb package
         run: |
           sudo apt update && sudo apt install -y g++ build-essential debhelper
