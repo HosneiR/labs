@@ -57,12 +57,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: main
-          
+                
       - name: Build .deb package
         run: |
           sudo apt update && sudo apt install -y g++ build-essential debhelper
