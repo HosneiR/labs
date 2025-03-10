@@ -37,7 +37,7 @@ jobs:
         mv ../*.deb artifacts/deb/
 
     - name: Upload .deb package artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: deb-package
         path: artifacts/deb/*.deb
