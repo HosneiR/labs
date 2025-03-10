@@ -1,0 +1,12 @@
+Source: fibonacci-software
+Section: utils
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper (>= 11), g++
+Standards-Version: 4.5.0
+
+Package: fibonacci-software
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Fibonacci number generator
+ A program to calculate Fibonacci numbers iteratively.

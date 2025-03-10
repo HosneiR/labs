@@ -1,0 +1,30 @@
+stages:
+  - build
+  - test
+  - package
+
+build:
+  stage: build
+  script:
+    - make
+    - mkdir -p artifacts/usr/bin
+    - cp main artifacts/usr/bin/
+  artifacts:
+    paths:
+      - artifacts/usr/bin/main
+
+test:
+  stage: test
+  script:
+    - chmod +x cicd/test_script.sh
+    - cicd/test_script.sh
+
+package:
+  stage: package
+  script:
+    - dpkg-buildpackage -us -uc
+    - mkdir -p artifacts/deb
+    - mv ../*.deb artifacts/deb/
+  artifacts:
+    paths:
+      - artifacts/deb/*.deb

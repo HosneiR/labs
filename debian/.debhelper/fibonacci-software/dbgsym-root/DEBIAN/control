@@ -1,0 +1,13 @@
+Package: fibonacci-software-dbgsym
+Package-Type: ddeb
+Source: fibonacci-software
+Version: 1.0-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Your Name <your.email@example.com>
+Installed-Size: 16
+Depends: fibonacci-software (= 1.0-1)
+Section: debug
+Priority: optional
+Description: debug symbols for fibonacci-software
+Build-Ids: ff2ebe368db71129e658d15dc376806d2a9ab434

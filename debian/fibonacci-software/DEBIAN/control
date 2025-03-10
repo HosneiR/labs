@@ -1,0 +1,10 @@
+Package: fibonacci-software
+Version: 1.0-1
+Architecture: amd64
+Maintainer: Your Name <your.email@example.com>
+Installed-Size: 23
+Depends: libc6 (>= 2.34), libstdc++6 (>= 13.1)
+Section: utils
+Priority: optional
+Description: Fibonacci number generator
+ A program to calculate Fibonacci numbers iteratively.

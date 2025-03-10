@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+build:
+	dh build
+	dh_auto_build
+
+install:
+	dh install
+	dh_auto_install
